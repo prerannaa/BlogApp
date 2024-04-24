@@ -67,9 +67,9 @@ export default function Home() {
                 >
                   Delete
                 </button>
-                <p className="flex justify-end items-end text-blue-700 text-end text-decoration-line: underline text-sm px-6 py-2">
+                {/* <p className="flex justify-end items-end text-blue-700 text-end text-decoration-line: underline text-sm px-6 py-2">
                   <a href="">Read More</a>
-                </p>
+                </p> */}
               </li>
             </div>
           </ul>

@@ -1,57 +1,3 @@
-// import React, { useState, useEffect } from "react";
-// import { useParams } from "react-router-dom";
-// import { getPost } from "../services/ApiService";
-
-// export default function EditBlog() {
-//   const { url } = useParams();
-//   const [post, setPost] = useState(null);
-
-//   useEffect(() => {
-//     getPost()
-//       .then((res) => {
-//         const foundPost = res.find((post) => post.url === decodeURIComponent(url));
-//         setPost(foundPost);
-//       })
-//       .catch((error) => console.error("Error fetching post data:", error));
-//   }, [url]);
-
-
-
-//   return (
-//     <>
-//       <h1 className="text-stone-700 text-2xl">Edit Blog</h1>
-//       <form onSubmit="">
-//         <ul>
-//           <li>
-//             Title
-//             <input
-//               type="text"
-//               name="title"
-//               defaultValue={post.title}
-//               // onChange={(e) => handleChange(e)}
-//             />
-//           </li>
-//           <li>
-//             Content
-//             <input
-//               type="text"
-//               name="content"
-//               defaultValue={post.content}
-//               // onChange={(e) => handleChange(e)}
-//             />
-//           </li>
-//         </ul>
-//         <button
-//           type="submit"
-//           className="font-normal bg-gray-500 hover:bg-stone-900 text-white py-2 px-4 rounded-full"
-//         >
-//           EDIT
-//         </button>
-//       </form>
-//     </>
-//   );
-// }
-
 
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -84,39 +30,57 @@ export default function EditBlog() {
     } catch (error) {
       console.error("Error updating post:", error);
     }
+    alert("Blog is edited!!");
   };
 
 
   return (
     <>
-      <h1 className="text-stone-700 text-2xl">Edit Blog</h1>
+      <h1 className=" flex justify-center py-8 text-slate-950 text-2xl">Edit Blog</h1>
       <form onSubmit={handleSubmit}>
+        <div className="flex justify-center mx-3 ">
         <ul>
           <li>
-            Title
+            <div>
+                <h2>Title</h2>
+            </div>
+            <div>
             <input
+              className="w-full h-8 shadow-lg border-2"
               type="text"
               name="title"
+              required
               value={formData.title}
               onChange={handleChange}
             />
+            </div>
           </li>
           <li>
+            <div>
             Content
+            </div>
+            <div>
             <input
+              className="w-full h-20 shadow-lg border-2"
               type="text"
               name="content"
+              required
               value={formData.content}
               onChange={handleChange}
             />
+            </div>
           </li>
         </ul>
+
+        </div>
+        <div className="flex justify-center px-10 pt-10">
         <button
           type="submit"
           className="font-normal bg-gray-500 hover:bg-stone-900 text-white py-2 px-4 rounded-full"
         >
           EDIT
         </button>
+        </div>
       </form>
     </>
   );

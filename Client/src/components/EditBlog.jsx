@@ -44,19 +44,20 @@ export default function EditBlog() {
 
   return (
     <>
-      <h1 className=" flex justify-center py-8 text-slate-950 text-2xl">Edit Blog</h1>
+      <h1 className=" flex justify-center py-8 text-slate-950 text-2xl font-bold">EDIT BLOG</h1>
       <form onSubmit={handleSubmit}>
-        <div className="flex justify-center mx-3 ">
+        <div className="flex justify-center mx-3 gap-4">
         <ul>
-          <li>
-            <div>
-                <h2>Title</h2>
+          <li className="py-10">
+            <div className="text-slate-500 font-bold">
+                <h2>TITLE</h2>
             </div>
             <div>
             <input
               className="w-full h-8 shadow-lg border-2"
               type="text"
               name="title"
+              placeholder="Title Here..."
               required
               value={formData.title}
               onChange={handleChange}
@@ -64,18 +65,21 @@ export default function EditBlog() {
             </div>
           </li>
           <li>
-            <div>
-            Content
+            <div className="text-slate-500 font-bold">
+            CONTENT
             </div>
             <div>
-            <input
-              className="w-full h-20 shadow-lg border-2"
-              type="text"
-              name="content"
-              required
-              value={formData.content}
-              onChange={handleChange}
-            />
+            <textarea
+                id="content"
+                name="content"
+                required
+                rows="10"
+                cols="100"
+                placeholder="Content Here..."
+                className=" shadow-lg border-2"
+                value={formData.content}
+                onChange={handleChange}
+                ></textarea>
             </div>
           </li>
         </ul>

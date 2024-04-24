@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { addPost } from "../services/ApiService";
+import { Link, Navigate } from "react-router-dom";
+
 
 export default function AddBlog() {
   // Define state variables to hold form data
@@ -7,6 +9,8 @@ export default function AddBlog() {
     title: "",
     content: "",
   });
+
+  const [goToHome, setGoToHome] = useState(false)
 
   const handleChange = (e) => {
     const newdata = { ...formData };
@@ -17,9 +21,15 @@ export default function AddBlog() {
   const handleSubmit = (e) => {
     addPost(e.target).then((res) => {
       setFormData(res);
-    });
+    });    
+    setGoToHome(true);
     alert("Blog is posted!!");
   };
+
+  if(goToHome){
+    console.log("Home")
+    return <Navigate to="/" />
+  }
 
   return (
     <>

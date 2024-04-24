@@ -2,11 +2,14 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getPost, updatePost } from "../services/ApiService";
+import { Navigate } from "react-router-dom";
 
 export default function EditBlog() {
   const { url } = useParams();
   const [post, setPost] = useState(null);
   const [formData, setFormData] = useState({ title: "", content: "" });
+  const [goToHome, setGoToHome] = useState(false)
+
 
   useEffect(() => {
     getPost()
@@ -30,9 +33,14 @@ export default function EditBlog() {
     } catch (error) {
       console.error("Error updating post:", error);
     }
+    setGoToHome(true);
     alert("Blog is edited!!");
   };
 
+  if(goToHome){
+    console.log("Home")
+    return <Navigate to="/" />
+  }
 
   return (
     <>

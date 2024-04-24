@@ -10,6 +10,7 @@ export default function Home() {
     let isMounted = true;
     getPost().then((res) => {
       if (isMounted) {
+        console.log("res", posts)
         setPosts(res);
       }
     });
@@ -17,6 +18,8 @@ export default function Home() {
       isMounted = false;
     };
   }, []);
+
+
 
   const handleEditClick = (post) => {
     console.log("Editing post:", post);
@@ -75,6 +78,10 @@ export default function Home() {
           </ul>
         ))}
       </div>
+      {/* <div className='container'>
+      <Post posts={currentPosts} loading={loading} />
+      <Pagination length={posts.length} postsPerPage={postsPerPge} handlePagination={handlePagination} currentPage={currentPage} />
+    </div> */}
     </>
   );
 }

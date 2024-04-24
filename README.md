@@ -5,6 +5,7 @@ This project is a full-stack blog website built using Django for the backend and
 **Prerequisites:**
 
 Python (version 3.7 or later)
+
 Node.js and npm (or yarn)
 
 **Installation:**

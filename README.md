@@ -2,7 +2,7 @@
 
 This project is a full-stack blog website built using Django for the backend and React with Vite for the frontend. It provides basic CRUD (Create, Read, Update, Delete) functionality for managing blog posts.
 
-** # Prerequisites:**
+**Prerequisites:**
 
 Python (version 3.7 or later)
 Node.js and npm (or yarn)
